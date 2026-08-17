@@ -6,6 +6,6 @@ qt6 = import('qt6')
 qt6_dep = dependency('qt6', modules: ['Core', 'Gui', 'Qml', 'Quick'])
 qt6_res = qt6.preprocess(qresources: 'qml.qrc')
 executable('openos-run',
-  sources: ['main.cpp', qt6_res],
+  sources: ['main.cpp', 'apps.cpp', 'apps.h', qt6_res],
   dependencies: [qt6_dep],
   install: true)

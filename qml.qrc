@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/qml">
         <file>OpenUI.qml</file>
-        <file>Run.qml</file>
+        <file>Launcher.qml</file>
     </qresource>
 </RCC>

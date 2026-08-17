@@ -1,17 +1,31 @@
-/* openos-run — 独立 App (自包含, 可单独构建) */
+/* openos-run — 独立 App (自包含, 可单独构建)
+ * Win10 风格开始菜单启动器
+ */
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
 #include <QQmlContext>
 #include <QUrl>
+#include "apps.h"
+
 int main(int argc, char** argv) {
     QGuiApplication app(argc, argv);
     app.setApplicationName("openos-run");
     app.setQuitOnLastWindowClosed(true);
+
     QQmlApplicationEngine engine;
+
     QQmlComponent token(&engine, QUrl(QStringLiteral("qrc:/qml/OpenUI.qml")));
     QObject* openUI = token.create();
     engine.rootContext()->setContextProperty("OpenUI", openUI);
-    engine.load(QUrl(QStringLiteral("qrc:/qml/Run.qml")));
+
+    /* 应用模型 + 启动器 (pacman 系统应用 + vmapp 隔离应用) */
+    AppsModel apps;
+    AppLauncher launcher;
+    apps.refresh();
+    engine.rootContext()->setContextProperty("appsModel", &apps);
+    engine.rootContext()->setContextProperty("appLauncher", &launcher);
+
+    engine.load(QUrl(QStringLiteral("qrc:/qml/Launcher.qml")));
     return engine.rootObjects().isEmpty() ? 1 : app.exec();
 }
