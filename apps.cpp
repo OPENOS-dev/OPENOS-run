@@ -63,5 +63,3 @@ void AppLauncher::launchInVmapp(const QString& vmapp, const QString& exec) {
     Q_UNUSED(vmapp);
     launch(exec);
 }
-
-#include "apps.moc"   // Qt moc: AppsModel/AppLauncher 的 Q_OBJECT vtable
