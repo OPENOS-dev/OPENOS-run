@@ -20,7 +20,8 @@ Window {
             anchors.fill: parent; anchors.margins: OpenUI.sp4; spacing: OpenUI.sp3
             Text { text: "运行"; color: OpenUI.onSurfaceVariant; font.pixelSize: OpenUI.typeLabelM }
             Row { width: parent.width; spacing: OpenUI.sp2
-                Text { text: "\u2192"; color: OpenUI.primary; font.pixelSize: 16; width: 20 }
+                Item { width: 20; height: 20; anchors.verticalCenter: parent.verticalCenter
+                    ThemedIcon { anchors.centerIn: parent; name: "arrow-right"; ctx: "Navigation"; size: 16; color: OpenUI.primary } }
                 TextField {
                     id: input
                     width: parent.width - 20; height: 34

@@ -52,8 +52,9 @@ Window {
                     ItemDelegate {
                         Layout.alignment: Qt.AlignHCenter
                         width: 40; height: 40
-                        contentItem: Text { anchors.centerIn: parent; text: "≡"
-                            color: OpenUI.onSurface; font.pixelSize: 20 }
+                        contentItem: Item {
+                            ThemedIcon { anchors.centerIn: parent; name: "open-menu"; ctx: "Actions"; size: 20; color: OpenUI.onSurface }
+                        }
                         background: Rectangle {
                             color: parent.hovered ? Qt.rgba(1,1,1,OpenUI.hoverAlpha) : "transparent"
                             radius: OpenUI.shapeSm
@@ -64,8 +65,9 @@ Window {
                     ItemDelegate {
                         Layout.alignment: Qt.AlignHCenter
                         width: 40; height: 40
-                        contentItem: Text { anchors.centerIn: parent; text: "⏻"
-                            color: OpenUI.onSurface; font.pixelSize: 18 }
+                        contentItem: Item {
+                            ThemedIcon { anchors.centerIn: parent; name: "system-power"; ctx: "Actions"; size: 20; color: OpenUI.onSurface }
+                        }
                         background: Rectangle {
                             color: parent.hovered ? Qt.rgba(1,1,1,OpenUI.hoverAlpha) : "transparent"
                             radius: OpenUI.shapeSm
